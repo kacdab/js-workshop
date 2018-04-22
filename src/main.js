@@ -30,24 +30,28 @@ Prepare FizzBuzzInferenceMachine which will return whole FizzBuzz sequence, sepa
 - for 53 it should return „FizzBuzz"
 */
 
-const FizzBuzz = function (input) {
-  if (input % 3 === 0) {
-    return "Fizz";
-  }
+const createFizzBuzzGame = function (a, b) {
+  return function(input) {
+    if (input % a === 0) {
+      return 'Fizz';
+    }
 
-  if (input % 5 === 0) {
-    return "Buzz";
-  }
+    if (input % b === 0) {
+      return 'Buzz';
+    }
 
-  if (input.toString().indexOf('3') !== -1) {
-    return 'Fizz';
-  }
+    if (input.toString().indexOf(a) !== -1) {
+      return 'Fizz';
+    }
 
-  if (input.toString().indexOf('5') !== -1) {
-    return 'Buzz';
-  }
+    if (input.toString().indexOf(b) !== -1) {
+      return 'Buzz';
+    }
 
   return input;
-}
+  };
+};
+
+const FizzBuzz = createFizzBuzzGame(3, 5)
 
 module.exports = FizzBuzz;
